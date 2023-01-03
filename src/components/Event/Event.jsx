@@ -25,7 +25,9 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
         <FaClock />
         {duration}
       </Info>
-      <Chip type={type}>{type}</Chip>
+      <Chip eventType={type} a={5}>
+        {type}
+      </Chip>
     </Card>
   );
 };

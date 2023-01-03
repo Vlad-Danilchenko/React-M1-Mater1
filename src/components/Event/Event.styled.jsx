@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { DefaultContext } from 'react-icons';
 
 export const Card = styled.div`
   position: relative;
@@ -26,7 +27,25 @@ export const Info = styled.p`
   line-height: 24px;
   font-weight: 400;
   letter-spacing: 0.25px;
+
+  svg {
+    display: block;
+    margin-right: 8px;
+    color: var(--color-secondary-text);
+  }
 `;
+const setBgColor = props => {
+  switch (props.eventType) {
+    case 'free':
+      return 'var(--color-green)';
+    case 'paid':
+      return 'var(--color-blue)';
+    case 'vip':
+      return 'var(--color-red)';
+    default:
+      return '#000';
+  }
+};
 
 export const Chip = styled.span`
   position: absolute;
@@ -35,17 +54,7 @@ export const Chip = styled.span`
   padding: 4px 8px;
   border-radius: 4px;
   text-transform: uppercase;
-  background-color: #000;
   color: #fff;
 
-  /* background-color: ${props => {
-    switch (props.type) {
-      case 'free':
-        return 'background-color: var(--color-green)';
-      case 'paid':
-        return 'background-color: var(--color-blue)';
-      case 'vip':
-        return 'background-color: var(--color-red)';
-    }
-  }}; */
+  background-color: ${setBgColor};
 `;

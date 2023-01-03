@@ -3,7 +3,6 @@ import { Board } from './EventBoard.styled';
 import { Event } from 'components/Event/Event';
 
 export const EventBoard = ({ events }) => {
-  console.log(events);
   return (
     <Board>
       {events.map(({ name, location, speaker, type, time }) => (
